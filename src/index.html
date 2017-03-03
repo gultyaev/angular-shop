@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="main.css">
+  <script src="vendor.js" defer></script>
+  <script src="main.js" defer></script>
+  <title>Магазин</title>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+	<!--HEADER-->
+  </header>
+  <section>
+	<div class="show-slider">
+	  <!--SLIDE A KIND SHOW-->
+	</div>
+	<div class="items-wrapper">
+	  <!--ITEMS-->
+	  <div>
+		<ul class="items-container" ng-controller="StoreController as store">
+		  <li ng-repeat="product in store.products" class="item">
+			<p class="title"><p class="item-title">{{product.name}}</p></p>
+			<img src="{{product.src}}" alt="{{product.name}}" class="item-img">
+			<p class="cost">Цена: {{product.cost}} грн</p>
+		  </li>
+		</ul>
+	  </div>
+	</div>
+  </section>
+  <footer>
+  	<!--ABOUT US-->
+  </footer>
+</div>
+</body>
+</html>
