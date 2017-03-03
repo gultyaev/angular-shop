@@ -23,7 +23,7 @@
 	  <!--ITEMS-->
 	  <div>
 		<ul class="items-container" ng-controller="StoreController as store">
-		  <li ng-repeat="product in store.products" class="item">
+		  <li ng-repeat="product in store.products | orderBy: 'name'" class="item">
 			<p class="title"><p class="item-title">{{product.name}}</p></p>
 			<img src="{{product.src}}" alt="{{product.name}}" class="item-img">
 			<p class="cost">Цена: {{product.cost}} грн</p>
@@ -35,6 +35,22 @@
   <footer>
   	<!--ABOUT US-->
   </footer>
+
+
+
+  <div>
+    <ul>
+      <li ng-click="tab = 1">lorem</li>
+      <li ng-click="tab = 2">lorem</li>
+      <li ng-click="tab = 3">lorem</li>
+    </ul>
+
+    {{ tab }}
+
+  </div>
+
+
+
 </div>
 </body>
 </html>
