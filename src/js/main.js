@@ -25,3 +25,10 @@ app.controller('StoreController', function() {
 	}
   ]
 });
+
+app.controller('SwitchShow', function () {
+  this.showType = 2;
+  this.switch = function switchShow(val) {
+    this.showType = val;
+  }
+});

@@ -1,23 +1,78 @@
 @import _style-reset
 
+.wrapper
+  opacity 0
+
 .items-container
-  &:before, &:after
-    content ''
-    clear both
+  font-size 0
 
 
 .item
-  width 19.744%
-  float left
   margin 0.128%
+  font-size 1rem
+  border 1px solid black
+
+  &--inline
+    width 19.744%
+    display inline-block
+
+  &--block
+    width 99%
+    display block
+    margin 10px auto
+    height auto
 
 .item-title
   font-size 1.5em
   font-weight bold
 
 .item-img
-  width 98%
-  height auto
+  height 200px
+  max-width 98%
+  display block
+  width auto
+  margin 0 auto
 
-.is-loading
-  opacity 0
+.loaded
+  opacity 1
+
+.font0
+  font-size 0
+
+.list-style
+  display inline-block
+  font-size 1.5rem
+  width 40px
+  height 40px
+  line-height 40px
+  background-color #2b54c2
+  border 1px solid #418cff
+  outline none
+  cursor pointer
+  position relative
+  font-family FontAwesome
+  color white
+  text-align center
+
+  &--block:before, &--inline:before
+    display block
+    position absolute
+    top 0
+    left 0
+    text-align center
+    width 100%
+
+  &--block:before
+    content '\f009'
+
+  &--inline:before
+    content '\f00b'
+
+  &.active
+    background-color #418cff
+    cursor auto
+
+  &:first-child
+    border-radius 15px 0 0 15px
+  &:last-child
+    border-radius 0 15px 15px 0
