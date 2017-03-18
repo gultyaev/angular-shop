@@ -67,6 +67,10 @@ gulp.task('js-vendor', function() {
   .pipe(gulp.dest('./web/'))
   .pipe(livereload({start: true}));
 });
+gulp.task('app-copy', function () {
+    gulp.src('./src/app/**/*')
+        .pipe(gulp.dest('./web/app'));
+})
 
 //copy project to git folder
 // gulp.task('git', function() {
@@ -78,6 +82,7 @@ gulp.task('watch', function() {
 	gulp.watch('./src/stylus/*.styl', ['css']);
 	gulp.watch('./src/index.html', ['index']);
 	gulp.watch('./src/js/*.js', ['js']);
+	gulp.watch(('./src/app/**/*'), ['app-copy']);
 });
 
-gulp.task('default', ['connect', 'js', 'js-vendor', 'fonts', 'index', 'css', 'watch']);
+gulp.task('default', ['connect', 'js', 'js-vendor', 'fonts', 'index', 'app-copy', 'css', 'watch']);

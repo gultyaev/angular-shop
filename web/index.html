@@ -1,50 +1,63 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru" data-ng-app="app">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="main.css">
-  <link rel="stylesheet" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-  <script src="vendor.js" defer></script>
-  <script src="main.js" defer></script>
-  <title>Магазин</title>
+
+    <!--  Meta  -->
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>Angular shop</title>
+
+    <!--  Styles  -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="main.css">
+
+    <script src="vendor.js" defer></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" defer></script>
+    <script src="main.js" defer></script>
 </head>
 <body>
-<div class="wrapper" data-ng-class="{'loaded':true}">
-  <header>
-	<!--HEADER-->
-  </header>
-  <section>
-	<div class="show-slider">
-	  <!--SLIDE A KIND SHOW-->
-	</div>
-	<div class="items-wrapper">
-	  <!--ITEMS-->
-	  <div data-ng-controller="SwitchShow as style">
-        <div class="font0">
-          <button class="list-style list-style--block" data-ng-click="style.switch(2)"
-                  data-ng-class="{'active': style.showType == 2 }"></button>
-          <button class="list-style list-style--inline" data-ng-click="style.switch(1)"
-                  data-ng-class="{'active': style.showType == 1 }"></button>
-        </div>
-		<ul class="items-container" data-ng-controller="StoreController as store">
-		  <li class="item" data-ng-repeat="product in store.products | orderBy: 'name'"
-              data-ng-class="{ 'item--block': style.showType == 1 ,'item--inline': style.showType == 2 }">
-			<p class="item-title">{{product.name}}</p>
-			<img data-ng-src="{{product.src}}" alt="{{product.name}}" class="item-img">
-			<p class="cost">Цена: {{product.cost}} грн</p>
-		  </li>
-		</ul>
-	  </div>
-	</div>
-  </section>
-  <footer>
-  	<!--ABOUT US-->
-  </footer>
+<div class="container-fluid" ng-class="{'isloaded':true}">
 
+    <div class="jumbotron">
+        <h1>Hello, everyone!</h1>
+        <h3><small>Welcome to the Secret Shop! Enjoy!</small></h3>
+    </div><!-- Jumbotron -->
 
-</div>
+    <div data-ng-controller="SwitchShow as style">
+        <fieldset class="form-group">
+            <div class="btn-group" role="group">
+                <button class="btn btn-default btn-lg"
+                        data-ng-click="style.switch(2)"
+                        data-ng-class="{'active': style.showType == 2 }">
+                    <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+                </button><!-- Button1 -->
+                <button class="btn btn-default btn-lg"
+                        data-ng-click="style.switch(1)"
+                        data-ng-class="{'active': style.showType == 1 }">
+                    <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                </button><!-- Button2 -->
+            </div>
+        </fieldset><!-- Button group -->
+
+        <div data-ng-controller="StoreController as store">
+            <div class="row">
+                <div data-ng-repeat="product in store.products"
+                     data-ng-class="{ 'item--block': style.showType == 1 ,'item--inline': style.showType == 2 }">
+                    <item info="product" style="style"></item>
+                </div><!-- item -->
+            </div><!-- Row -->
+        </div><!-- Content -->
+    </div><!-- SwitchShowCtrl -->
+
+    <div class="cart">
+        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#cartModal">
+            Корзина <span class="glyphicon glyphicon-shopping-cart"></span>
+        </button>
+    </div><!-- Cart -->
+
+    <cart-popup></cart-popup>
+
+</div><!-- Container -->
 </body>
 </html>
