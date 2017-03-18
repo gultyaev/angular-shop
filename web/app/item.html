@@ -1,0 +1,13 @@
+<div data-ng-class="{'col-md-3': style.showType == 2, 'col-md-12': style.showType != 2}">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <p class="item-title">{{ info.name }}</p>
+        </div>
+        <div class="panel-body">
+            <img data-ng-src="{{ info.src }}" alt="{{ info.name }}"
+                 class="img-thumbnail img-responsive">
+            <p class="text-primary">{{ info.cost | currency }}</p>
+            <button class="btn btn-primary">Buy!</button>
+        </div>
+    </div><!-- Panel -->
+</div><!-- Column -->
