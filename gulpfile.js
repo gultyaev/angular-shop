@@ -63,9 +63,10 @@ gulp.task('js', function() {
 });
 gulp.task('js-vendor', function() {
   gulp.src('./src/js/vendor/*.js')
-  .pipe(concat('vendor.js'))
-  .pipe(gulp.dest('./web/'))
-  .pipe(livereload({start: true}));
+      .pipe(concat('vendor.js'))
+      .pipe(uglify())
+      .pipe(gulp.dest('./web/'))
+      .pipe(livereload({start: true}));
 });
 gulp.task('app-copy', function () {
     gulp.src('./src/app/**/*')
